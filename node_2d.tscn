@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://1aampg6nen5"]
+
+[ext_resource type="Texture2D" uid="uid://l1shfal2w0s8" path="res://particles-pixel.png" id="1_yk2gc"]
+
+[sub_resource type="Curve" id="Curve_vhpqc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.490909), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_owj3b"]
+curve = SubResource("Curve_vhpqc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cyf8x"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_owj3b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jgg5h"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bugged" type="GPUParticles2D" parent="."]
+position = Vector2(-41, 0)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_cyf8x")
+texture = ExtResource("1_yk2gc")
+lifetime = 1.3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Normal" type="GPUParticles2D" parent="."]
+position = Vector2(22, 0)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_jgg5h")
+texture = ExtResource("1_yk2gc")
